@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(orbslam3)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+add_definitions(-DPROJECT_PATH="${CMAKE_SOURCE_DIR}") # make this variable accessible in c++ files
 
 # You should set the PYTHONPATH to your own python site-packages path
 set(ENV{PYTHONPATH} "/opt/ros/humble/lib/python3.10/site-packages/")
@@ -17,6 +18,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+add_definitions(-w)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)

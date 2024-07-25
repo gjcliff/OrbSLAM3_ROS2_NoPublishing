@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(orbslam3)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS on)
+
 # You should set the PYTHONPATH to your own python site-packages path
 set(ENV{PYTHONPATH} "/opt/ros/humble/lib/python3.10/site-packages/")
 
@@ -66,6 +68,10 @@ add_executable(stereo-inertial
 ament_target_dependencies(stereo-inertial rclcpp sensor_msgs cv_bridge ORB_SLAM3 Pangolin OpenCV)
 
 install(TARGETS mono mono-inertial rgbd stereo stereo-inertial DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/launch)
+
+install(DIRECTORY bags DESTINATION share/${PROJECT_NAME}/bags)
 
 # Install launch files.
 #install(DIRECTORY launch config vocabulary

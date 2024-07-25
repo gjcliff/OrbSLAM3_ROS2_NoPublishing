@@ -14,13 +14,13 @@
 
 #include "utility.hpp"
 
-using ImuMsg = sensor_msgs::msg::Imu;
-using ImageMsg = sensor_msgs::msg::Image;
+using ImuMsg = sensor_msgs::msg::Imu; // I don't like this - Graham
+using ImageMsg = sensor_msgs::msg::Image; // Don't like this either - Graham
 
 class MonocularInertialNode : public rclcpp::Node
 {
 public:
-    MonocularInertialNode(ORB_SLAM3::System* pSLAM);
+    MonocularInertialNode(ORB_SLAM3::System* pSLAM); // weird, just make it a class variable to begin with?
     ~MonocularInertialNode();
 
 private:
